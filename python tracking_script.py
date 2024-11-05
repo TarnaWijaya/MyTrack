@@ -1,5 +1,4 @@
 import platform
-import requests
 
 def menu():
     print("   [+] TRACKING SCRIPT [+]")
@@ -7,7 +6,7 @@ def menu():
     print("1. Menampilkan Informasi Perangkat")
     print("2. Menampilkan IP Publik (tidak tersedia di PyCode)")
     print("3. Cari Username (dengan link media sosial saja)")
-    print("4. Melihat Informasi Nomor Telepon")
+    print("4. Melihat Informasi Nomor Telepon (Hanya simulasi)")
     print("0. Keluar")
     print("=================================")
 
@@ -33,27 +32,8 @@ def find_username():
     for platform_name, url in platforms.items():
         print(f"{platform_name}: {url}")
 
-def get_phone_info(phone_number):
-    api_key = "386e33ea187d85de8dae9d8f2c412dce"  # API key Anda
-    url = f"http://apilayer.net/api/validate?access_key={api_key}&number={phone_number}"
-    
-    try:
-        response = requests.get(url)
-        data = response.json()
-        if data.get('valid'):
-            print("\nInformasi Nomor Telepon:")
-            print(f"Nomor: {data['number']}")
-            print(f"Internasional: {data['international_format']}")
-            print(f"Negara: {data['country_name']}")
-            print(f"Jenis: {data['line_type']}")
-        else:
-            print("Nomor telepon tidak valid.")
-    except Exception as e:
-        print("Terjadi kesalahan saat memanggil API:", str(e))
-
 def phone_info():
-    phone_number = input("Masukkan nomor telepon (tanpa spasi atau tanda): ")
-    get_phone_info(phone_number)
+    print("\nFitur melihat informasi nomor telepon tidak dapat diimplementasikan di sini.")
 
 if __name__ == "__main__":
     while True:
